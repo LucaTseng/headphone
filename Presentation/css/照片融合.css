@@ -1,0 +1,20 @@
+/* 下面是兩張照片融合 */
+.portrait {
+    position: absolute;
+    top: 800;
+    left: 800;
+    width: 100%;
+    height: 100vh;
+}
+.portrait img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.portrait img.texture {
+    mix-blend-mode: multiply; /* 這個用來將兩張照片稼接在一起 但兩張照片必須要都是jpg*/
+    filter: contrast(1.5);
+}

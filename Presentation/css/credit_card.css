@@ -1,0 +1,42 @@
+* {
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#73c1ff, #fff);
+}
+/* 大容器 */
+.payment {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+/* 卡片背景-漸層 */
+.payment .bg {
+    position: absolute;
+    bottom: 0;
+    height: 70%;
+    width: 100%;
+    border-radius: 25px;
+    background: linear-gradient(225deg, #2196f3, #ff4efd);
+}
+/* 卡片 */
+.payment .card {
+    position: relative;
+    width: 580px;
+    height: 350px;
+    background: #fcfcfc;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}

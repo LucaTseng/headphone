@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/CSS_Card_Hover_Effects.css" />
+        <title>Headphone Introduction</title>
+    </head>
+    <body>
+        <!-- 側邊滾輪  -->
+        <div id="progressBar"></div>
+        <div id="scrollPath"></div>
+        <!-- hero page 往下滑會有天色漸漸變暗的感覺  -->
+        <article>
+            <section id="heropage">
+                <img src="../image/heropage/skybg.jpg" id="sky" alt="我是天空" />
+                <img src="../image/heropage/taipei101night2.png" id="building" alt="我是房子" />
+                <img src="../image/heropage/moon.png" alt="我是月亮" id="moon" />
+                <h2 id="tonighttext">Just Relax Tonight...</h2>
+            </section>
+            <!-- nav  -->
+            <div id="home" class="banner">
+                <header>
+                    <a href="#" class="logo">Ahoy</a>
+
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#home" onclick="toggle()">首頁</a>
+                            </li>
+                            <li>
+                                <a href="#structure" onclick="toggle()">引言</a>
+                            </li>
+                            <li>
+                                <a href="#brand" onclick="toggle()">品牌介紹</a>
+                            </li>
+
+                            <li>
+                                <a href="#share" onclick="toggle()">耳機分類</a>
+                            </li>
+                            <li>
+                                <a href="#friend" onclick="toggle()">朋友心得</a>
+                            </li>
+                            <li>
+                                <a href="#future" onclick="toggle()">未來趨勢</a>
+                            </li>
+                            <li>
+                                <a href="#brandlink" onclick="toggle()">品牌官網連結</a>
+                            </li>
+                        </ul>
+                        <div class="toggle" onclick="toggle()"></div>
+                    </nav>
+                </header>
+                <img src="../image/headphone/trHD800sHeadphone.jpg" alt="" />
+                <div class="content">
+                    <!-- <h2>Headphone</h2> -->
+                    <p>長大後才發現，獨處，其實是成人世界裡，最奢侈的禮物。</p>
+                </div>
+            </div>
+            <!-- 引言 -->
+            <section class="about" id="structure">
+                <div class="contentBx">
+                    <h2 class="heading">引言</h2>
+
+                    <p class="textabout">
+                        事先申明，本人並不是什麼『大燒』。
+                        <br /><br />
+                        這篇文章僅提供的是一些挑耳機時簡單的方向。
+                        <br /><br />
+                        在挑選耳機後，請一定要考慮自己準備要用什麼樣的系統。
+                        <br /><br />
+                        一副相當有素質、有潛力的耳機，
+                        <br /><br />
+                        未必能在電腦或手機直推的情況下發揮出好的表現。
+                    </p>
+                </div>
+                <div class="imgBx"></div>
+            </section>
+            <!-- 滑動式卡片 -->
+            <section id="brand">
+                <div class="heading">
+                    <h2>品牌介紹</h2>
+                    <br />
+                    <!-- <p>以下是個人喜歡的品牌</p> -->
+                </div>
+                <div class="fuckme">
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img src="../image/brand/sennheiser.png" alt="" />
+                                <h3>森海賽爾</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>
+                                    擁有悠久歷史的耳機大廠，於西元1945年在德國成立。 1991年推出被成為耳機皇帝“Orpheus” 聲音風格趨向平淡厚實而不失大氣，音色醇厚、
+                                    溫暖舒服，特別是女聲與弦樂器，中頻的人聲表現微 甜、細緻、感染力好，低頻表現屬於比較寬鬆、大片 的，喜歡扎實感覺的人可能會不習慣。
+                                </p>
+                                <a href="https://en-us.sennheiser.com/">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img src="../image/brand/grado-wordmark-black.png" alt="" />
+                                <h3>歌德</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>
+                                    擁有悠久歷史的耳機小廠，於西元1955年在美國成立。 效率高，在電腦或是手機直推都具有不錯的表現。
+                                    再來是聲音的部分，Grado的耳機大多都具有通透且明亮的特色，活生感強、高頻的表現相當活潑。
+                                    但相對的，它們家耳機的聲音比較刺激。攻擊性、侵略感相較於其他耳機要來得多一些。
+                                </p>
+                                <a href="https://gradolabs.com/">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img src="../image/brand/beyerdynamic-logo-vector.png" alt="" />
+                                <h3>拜亞動力</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>
+                                    擁有悠久歷史的耳機大廠，於西元1924年在德國成立。 1937年發明世界上第一款動圈式耳機 聲音直接有力，音場包圍感好，空間感一流，高音細膩纖細、低音又有
+                                    Q度、中音扎實夠力，聲音表現更趨於中性，各式各樣 的音樂類型都可以展現出來他音樂的韻味。
+                                </p>
+                                <a href="https://europe.beyerdynamic.com/">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 耳機分類 -->
+            <section class="services" id="share">
+                <h2 class="heading">主流耳罩式耳機可分成 開放式 與 封閉式</h2>
+                <br />
+                <p>兩者的差異在於聲音是否被隔絕</p>
+
+                <div class="ServiceContainer">
+                    <div class="serviceBx">
+                        <div>
+                            <img src="../image/headphone/hd800s.png" alt="sennheiser" />
+                            <div>
+                                <h2>sennheiser HD800s</h2>
+                                <h2>開放式</h2>
+                                <h2>擅長古典音樂、電影原聲帶</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serviceBx">
+                        <div>
+                            <img src="../image/headphone/dt770pro.png" alt="beyerdynamic" />
+                            <div>
+                                <h2>beyerdynamic DT770 pro</h2>
+                                <h2>封閉式</h2>
+                                <h2>乾淨無音染、較偏監聽</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serviceBx">
+                        <div>
+                            <img src="../image/headphone/grado_Rs1e.png" alt="Grado" />
+                            <div>
+                                <h2>Grado Rs1e</h2>
+                                <h2>開放式</h2>
+                                <h2>人聲韻味十足</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 還沒想好要放啥 -->
+            <section class="technology">
+                <div class="contentBx">
+                    <h2 class="heading">系統搭配分享</h2>
+                    <p>DAC 的部分用Chord的Hugo2</p>
+                    <p>配合鐵三角的BHA-100耳機擴大機</p>
+                    <p>簡單處理也可以有好聲音</p>
+                </div>
+            </section>
+            <!-- 還沒想好要放啥 -->
+            <!-- <section class="client">
+                <h2 class="heading">個人系統分享2</h2>
+                <p class="textclient">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Eveniet ullam dicta sint dolor dolorum eaque, necessitatibus
+                    debitis temporibus quas possimus facilis amet aliquid
+                    consectetur? Culpa voluptates dolores iusto repudiandae
+                    quae?
+                </p>
+                <div class="imgBx">
+                    <a href="https://en-us.sennheiser.com/"
+                        ><img src="../image/brand/sennheiser.png" alt=""
+                    /></a>
+                    <a href="https://europe.beyerdynamic.com/"
+                        ><img
+                            src="../image/brand/beyerdynamic-logo-vector.png"
+                            alt=""
+                    /></a>
+                    <a href="https://gradolabs.com/"
+                        ><img
+                            src="../image/brand/grado-wordmark-black.png"
+                            alt=""
+                    /></a>
+                    <a href="https://www.apple.com/tw/airpods-pro/"
+                        ><img src="../image/assets/brand4.png" alt=""
+                    /></a>
+                </div>
+            </section> -->
+            <!-- 這邊放一點好笑的東西好了 -->
+            <section class="testimonials" id="friend">
+                <h2 class="heading">朋友心得</h2>
+                <div class="testimonialsContainer">
+                    <div class="contentBx">
+                        <div>
+                            <p>高音甜，中音準，低音沉。</p>
+
+                            <p>總之一句話，就是通透！</p>
+
+                            <br />
+                            <h3>不願意透露姓名的朋友</h3>
+                        </div>
+                    </div>
+                    <div class="contentBx">
+                        <div>
+                            <p>
+                                強聲有著排山倒海的磅礡氣勢，<br />
+                                弱音宛如細膩綿密的幽幽夜雨。<br />
+                                樂器之間縱向的層次分明清晰，<br />
+                                大編製的音場控制的相當沉穩，<br />
+                                並且在橫向的寬度相當的廣闊。<br />
+                            </p>
+                            <br />
+                            <h3>巴哈論壇網友-青茶</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" onclick="mOOnface()">
+                    <div class="face face1">
+                        <div class="eyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <div class="eyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                    </div>
+                    <div class="face face3">
+                        <div class="eyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 小結尾 -->
+            <section class="futurecontact" id="future">
+                <div class="futuretext">
+                    <h2 class="heading">未來趨勢</h2>
+                    <p>現今因通訊晶片飛快進步，藍芽耳機異軍突起</p>
+                    <p>2020 年全球藍牙耳機的總銷量將逾 3 億副。真無線藍牙耳機的銷售量年增約 90%，其中蘋果霸佔約 50% 的市佔。</p>
+                    <p>各廠家競爭激烈，甚至在2021年5月森海賽爾宣布把旗下的消費者業務出售予瑞士的企業Sonova</p>
+                    <p>由此可見，有線耳機雖然目前音質仍大於無線耳機，但隨著技術的進步，無線耳機將改變目前的一切</p>
+                    <p>假如你現在想養一隻貓，那藍芽耳機就會是您最好的選擇</p>
+                </div>
+                <div class="twoblock">
+                    <div class="imgBx2">
+                        <img src="../image/梗圖/naughtycat2.jpeg" alt="" />
+                    </div>
+                    <div class="formBx">
+                        <div class="form">
+                            <div class="inputBx">
+                                <input type="text" name="" placeholder="姓名" />
+                            </div>
+                            <div class="inputBx">
+                                <input type="email" name="" placeholder="電子信箱" required />
+                            </div>
+                            <div class="inputBx">
+                                <input type="text" name="" placeholder="電話號碼" pattern="[09]{2}-[0-9]{8}" />
+                            </div>
+                            <div class="inputBx">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="請留下您對哪類耳機最有興趣"></textarea>
+                            </div>
+                            <div class="inputBx">
+                                <input
+                                    type="submit"
+                                    value="Send"
+                                    style="width: 150px; border: 1px solid var(--white); background: var(--white); color: var(--black); cursor: pointer; font-weight: 400px"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 表單 -->
+            <!-- <section>
+                <div
+                    class="contentBx redbg"
+                    style="
+                        background: url(../image/assets/red.jpg);
+                        background-size: cover;
+                        background-position: center;
+                        width: 50%;
+                    "
+                >
+                    <div class="form">
+                        <div class="inputBx">
+                            <input type="text" name="" placeholder="姓名" />
+                        </div>
+                        <div class="inputBx">
+                            <input
+                                type="email"
+                                name=""
+                                placeholder="電子信箱"
+                                required
+                            />
+                        </div>
+                        <div class="inputBx">
+                            <input
+                                type="text"
+                                name=""
+                                placeholder="電話號碼"
+                                pattern="[09]{2}-[0-9]{8}"
+                            />
+                        </div>
+                        <div class="inputBx">
+                            <textarea
+                                name=""
+                                id=""
+                                cols="30"
+                                rows="10"
+                                placeholder="請留下您對哪類耳機最有興趣"
+                            ></textarea>
+                        </div>
+                        <div class="inputBx">
+                            <input
+                                type="submit"
+                                value="Send"
+                                style="
+                                    width: 150px;
+                                    border: 1px solid var(--white);
+                                    background: var(--white);
+                                    color: var(--black);
+                                    cursor: pointer;
+                                    font-weight: 400px;
+                                "
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="imgBx2"></div>
+            </section> -->
+        </article>
+        <!-- footer -->
+        <section class="footer">
+            <p class="footertext">Copyright &copy; 2021 Luca Tseng</p>
+            <div class="followUs">
+                <p class="footertext">Follow me on</p>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/road83420/"><img src="../image/assets/facebook.png" alt="fff" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/road83420/"><img src="../image/assets/twitter.png" alt="ff" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/road83420/"><img src="../image/assets/linkedin.png" alt="f" /></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 品牌官網連結 -->
+        <section class="client" id="brandlink">
+            <h2 class="heading">品牌官網連結</h2>
+            <p class="textclient">對自己好一點點，從點選以下連結開始</p>
+            <div class="imgBx">
+                <a href="https://en-us.sennheiser.com/"><img src="../image/brand/sennheiser.png" alt="" /></a>
+                <a href="https://europe.beyerdynamic.com/"><img src="../image/brand/beyerdynamic-logo-vector.png" alt="" /></a>
+                <a href="https://gradolabs.com/"><img src="../image/brand/grado-wordmark-black.png" alt="" /></a>
+                <a href="https://www.apple.com/tw/airpods-pro/"><img src="../image/brand/apple_logo_PNG19682.png" alt="" /></a>
+            </div>
+        </section>
+
+        <script src="../js/script.js"></script>
+    </body>
+</html>

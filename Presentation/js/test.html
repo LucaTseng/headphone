@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let radian = Math.atan2(Event.pageX - 5, Event.pageY - 5);
+            let rot = radian * (180 / Math.PI) * -1 + 270;
+            let x = "rotate(" + rot + "deg)";
+            let t = `rotate(${+rot}+deg)`;
+            console.log(x == t);
+        </script>
+    </body>
+</html>

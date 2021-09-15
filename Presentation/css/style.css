@@ -1,0 +1,723 @@
+@import url("https:/fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --darkblue: #0a2a43;
+    --veryDarkblue: #12222d;
+    --blue: #3475ca;
+    --white: #fff;
+    --darkgreen: #162c3b;
+    --black: #000000;
+    --text00: 60px;
+    --text01: 30px;
+    --text02: 20px;
+    --zindex00: 30000;
+    --zindex01: 20000;
+    --zindex02: 10000;
+    --zindex03: 9000;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+/* 側邊欄 */
+::-webkit-scrollbar {
+    width: 0; /*我們先把原本的滾輪欄弄掉*/
+}
+#scrollPath {
+    /*白底滾輪欄*/
+    position: fixed;
+    top: 0; /*沒這行 還行*/
+    right: 0; /*系統默認在左邊 沒這行也不行*/
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: var(--zindex00);
+}
+#progressBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 0;
+    background: linear-gradient(
+        to top,
+        #008aff,
+        #00ffe7
+    ); /*to top就是由下到上*/
+    z-index: var(--zindex00);
+}
+#progressBar::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0; /*雖然我寫對了 但為啥這邊寫left 沒事*/
+    width: 10px;
+    height: 0; /*初始狀態為零 */
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px); /* 效果:高斯模糊 這邊使用30000px好像沒差捏*/
+}
+#progressBar::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0; /*雖然我寫對了 但為啥這邊寫left 沒事*/
+    width: 100%;
+    height: 100px; /*經實驗證明 根本沒差 */
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px); /* 效果:高斯模糊*/
+}
+/*{nav bar}*/
+.banner {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: var(--darkblue);
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*主軸的中間 在這邊是水平軸*/
+    align-items: center; /*交錯軸的中間 在這邊是縱貫軸*/
+}
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+}
+.banner .content {
+    position: relative;
+    max-width: 80%; /*將內容寬度限制在一定範圍內。*/
+    text-align: center;
+}
+.banner .content h2 {
+    color: var(--white);
+    font-size: var(--text00);
+}
+/* 打字動畫 */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 26em;
+    }
+}
+/* 閃爍游標 */
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}
+.banner .content p {
+    width: 26em;
+    border-right: 0.05em solid;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 6s steps(26), caret 1s steps(1);
+    animation-iteration-count: infinite;
+    color: var(--white);
+    font-size: var(--text01);
+}
+.banner header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: var(--zindex02);
+}
+.banner header .logo {
+    color: var(--white);
+    text-decoration: none;
+    font-size: var(--text01);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.banner header ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.banner header ul li {
+    position: relative;
+    list-style: none;
+}
+.banner header ul li a {
+    position: relative;
+    padding: 5px 10px;
+    color: var(--white);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+.banner header ul li a.active,
+.banner header ul li a:hover {
+    background: var(--blue);
+}
+.banner header .toggle {
+    display: none;
+    position: relative;
+    width: 36px;
+    height: 28px;
+    background: url(../image/assets/toggle.png);
+    background-size: cover;
+    cursor: pointer;
+}
+/* {今晚我想好好放鬆 }*/
+section#heropage {
+    position: relative;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden; /*文字往下掉時 會沉到頁面裡*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+section#heropage::before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--black), transparent);
+    z-index: var(--zindex02);
+}
+section#heropage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*填滿元素的寬度及高度(維持原比例)，通常會剪掉部分的物件。 */
+    pointer-events: none;
+}
+#building {
+    z-index: 2;
+}
+#tonighttext {
+    position: relative;
+    color: #fff;
+    font-size: 5em;
+    z-index: 3;
+    letter-spacing: 8px;
+}
+
+/* 引言 */
+.about {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.about .contentBx {
+    background: var(--darkgreen);
+    padding: 100px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about .contentBx .heading {
+    color: var(--white);
+    font-size: var(--text01);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    max-width: 100vw;
+    min-height: 10vh;
+}
+.about .contentBx .textabout {
+    width: 36em;
+    /* overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.05em solid; */
+    /* animation: typing 8s steps(25), caret 1s steps(1);
+    animation-iteration-count: infinite; */
+    color: var(--white);
+    font-size: var(--text02);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.about .imgBx {
+    background: url(../image/headphone/nigjtHD800sHeadphone.jpg);
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+}
+/* 品牌介紹 */
+.fuckme {
+    background-color: var(--darkblue);
+}
+#brand {
+    background-color: var(--darkblue);
+}
+#brand .heading {
+    color: var(--white);
+    font-size: var(--text01);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    max-width: 100vw;
+    min-height: 30vh;
+}
+/* 耳罩分類方式 */
+.services {
+    background: var(--veryDarkblue);
+    padding: 100px;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+}
+.services .ServiceContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.services .ServiceContainer .serviceBx {
+    position: relative;
+    background: var(--white);
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.services .ServiceContainer .serviceBx img {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+}
+.services h2 {
+    color: var(--white);
+    font-size: var(--text01);
+}
+.services p {
+    color: var(--white);
+    font-size: var(--text02);
+}
+.services .ServiceContainer .serviceBx h2 {
+    color: var(--black);
+    font-size: var(--text02);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* 小結語 系統搭配分享 */
+.technology {
+    background: var(--blue);
+    min-height: 50vh;
+    width: 100%;
+    padding: 100px;
+    padding-top: 300px;
+    margin-top: -500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.technology .contentBx {
+    max-width: 800px;
+}
+/* .technology .imgBx {
+    max-width: 250px;
+}
+.technology .imgBx img {
+    max-width: 100%;
+} */
+.technology h2 {
+    color: var(--white);
+}
+.technology p {
+    color: var(--white);
+    width: 18em;
+    overflow: hidden;
+    animation: typing 3s steps(11), caret 1s steps(1);
+    animation-iteration-count: infinite;
+    white-space: nowrap;
+    border-right: 0.05em solid;
+}
+
+.testimonials {
+    position: relative;
+
+    background: var(--darkblue);
+
+    min-height: 50vh;
+    width: 100%;
+    text-align: center;
+}
+.testimonials .heading {
+    color: var(--white);
+    font-size: var(--text01);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    max-width: 100vw;
+    min-height: 20vh;
+}
+.testimonials .testimonialsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.testimonials .testimonialsContainer .contentBx {
+    background: var(--white);
+    padding: 60px 50px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+.testimonials .testimonialsContainer .contentBx p {
+    font-style: italic;
+}
+.testimonials .testimonialsContainer .contentBx h3 {
+    width: 100%;
+    text-align: end;
+    font-weight: 500;
+    color: var(--blue);
+}
+.testimonials h2 {
+    color: var(--white);
+}
+/* {moonface} */
+.container {
+    cursor: url(../image/headphone/grado_mini02.png), pointer;
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.container .face {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #f44336, #f44336, #ffcd00);
+    justify-content: center;
+    align-items: center;
+}
+.container .face:hover {
+    background: #ffcd00;
+}
+/*在臉的前面 建立一個虛擬物件:脫臼的下吧*/
+.container .face::before {
+    content: " ";
+    position: absolute; /*why absolute?*/
+
+    top: 210px;
+    width: 150px;
+    height: 20px;
+    left: 74.3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: #e73306;
+    transition: 0.5s;
+}
+/*這個是要開心後的表情 hover不能移到後面去 我們是要 當滑鼠一上去的時候 在他前面附加東西*/
+.container .face:hover::before {
+    top: 180px;
+    width: 70px;
+    height: 70px;
+    left: 120px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    background: #9d0b00;
+}
+.container .face .eyes {
+    position: relative;
+    top: 58px;
+    left: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /*透過 flex-wrap 來換行*/
+}
+/*兩隻眼白*/
+.container .face .eyes .eye {
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    /* border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px; */
+    margin: 0 15px;
+    transition: 0.5s;
+}
+/*兩顆眼瞳*/
+.container .face .eyes .eye::before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 50%;
+}
+/* 未來趨勢 */
+.futurecontact {
+    min-height: 100vh;
+    width: 100%;
+    background: var(--darkgreen);
+}
+.futurecontact .futuretext h2 {
+    color: var(--white);
+    font-size: var(--text01);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    max-width: 100vw;
+    min-height: 10vh;
+}
+.futurecontact .futuretext p {
+    text-align: center;
+    color: var(--white);
+    font-size: var(--text02);
+}
+.futurecontact .twoblock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    /* border: 2px solid red; */
+}
+.futurecontact .twoblock .imgBx2 {
+    position: relative;
+    padding: 0 0 0 100px;
+    width: 50%;
+    height: 100%;
+}
+.futurecontact .twoblock .formBx {
+    /* border: 1px solid yellow; */
+    background: url(../image/assets/red.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 650px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-content: center;
+}
+.futurecontact .twoblock .formBx .form .inputBx {
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.futurecontact .twoblock .formBx .form .inputBx input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 0px;
+    font-size: var(--text02);
+    font-weight: 30px;
+    color: var(--white);
+    border-bottom: 2px solid var(--white);
+    width: 100%;
+}
+
+.futurecontact .twoblock .formBx .form .inputBx input::placeholder {
+    color: var(--white);
+}
+
+.futurecontact .twoblock .formBx .form .inputBx textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0px 0;
+    font-size: var(--text02);
+    font-weight: 200px;
+    color: var(--white);
+
+    border-bottom: 2px solid var(--white);
+}
+.futurecontact .twoblock .formBx .form .inputBx textarea::placeholder {
+    color: var(--white);
+}
+/* 結尾 */
+.footer {
+    height: 10vh;
+    width: 100%;
+    background: var(--darkgreen);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.footertext {
+    color: var(--white);
+}
+.footer ul li {
+    list-style: none;
+}
+.footer ul li a {
+    text-decoration: none;
+    margin: 0 10 px;
+}
+.footer ul li a img {
+    filter: invert(1);
+    max-width: 20px;
+}
+.client {
+    background: var(--darkblue);
+    min-height: 10vh;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.client .imgBx {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+.client .imgBx img {
+    max-width: 250px;
+    margin: 20px;
+    opacity: 0.25;
+    cursor: pointer;
+}
+.client .imgBx img:hover {
+    opacity: 1;
+}
+.client h2 {
+    color: var(--white);
+}
+.client p {
+    color: var(--white);
+}
+@media (max-width: 992px) {
+    section {
+        padding: 100px 50px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner header {
+        padding: 20px 50px;
+    }
+    .banner header ul {
+        position: absolute;
+        top: -100%;
+        left: 0px;
+        width: 100%;
+        height: calc(100vh - 50px);
+        padding: 50px 100px;
+        text-align: center;
+        overflow: auto;
+        transition: 0.5s;
+        background: var(--black);
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    .banner header .active ul {
+        opacity: 1;
+        top: 50px;
+        transform: translateY(0%);
+    }
+    .banner header ul li a {
+        margin: 10px 0px;
+        font-size: 24px;
+    }
+    .banner header .toggle {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    .banner header .toggle::before {
+        content: " ";
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        height: 2px;
+        background: var(--white);
+        z-index: 1;
+
+        transition: 0.5s;
+    }
+    .banner header .toggle::after {
+        content: " ";
+        position: absolute;
+        top: 4px;
+        width: 100%;
+        height: 2px;
+        background: var(--white);
+        z-index: 1;
+        box-shadow: 0 10px 0 #fff;
+        transition: 0.5s;
+    }
+    .banner header .active .toggle::before {
+        top: 14px;
+        transition: rotate(45deg);
+        box-shadow: 0 0 0 #fff;
+    }
+    .banner header .active .toggle::after {
+        bottom: 14px;
+        transition: rotate(-45deg);
+    }
+    .banner content h2 {
+        font-size: 36px;
+    }
+}
